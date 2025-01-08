@@ -32,13 +32,13 @@ jobs:
         run: "npm install"
 
       - name: Build step
-        run: "npm run build"
+        run: "npm run dev"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "dreamofinfi-gemini-sear-48"
-          entrypoint: "https://deno.land/std@0.217.0/http/file_server.ts"
-          root: "out"
-          
+          project: "gemini-search"
+          entrypoint: "jsr:@deno/nextjs-start"
+          root: "."
+          include: .next, public
           
